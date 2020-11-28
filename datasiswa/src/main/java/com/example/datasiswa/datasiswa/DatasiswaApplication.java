@@ -8,6 +8,6 @@ public class DatasiswaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DatasiswaApplication.class, args);
+//		System.out.println("Hello World");
 	}
-
 }
