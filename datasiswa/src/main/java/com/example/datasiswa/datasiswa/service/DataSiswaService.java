@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.datasiswa.datasiswa.entity.DataSiswaEntity;
 import com.example.datasiswa.datasiswa.repository.DataSiswaRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 @Service
 public class DataSiswaService {
@@ -57,5 +59,16 @@ public class DataSiswaService {
 		
 		return map;
 		
+	}
+	
+	@Transactional
+	public Map<String, Object> filterSiswa(String nis){
+		DataSiswaEntity data = dataSiswaRepository.filter(nis);
+		Map<String, Object> map = new HashMap<>();
+		map.put("statusCode", 200);
+		map.put("message", "success");
+		map.put("data", data);
+		
+		return map;
 	}
 }

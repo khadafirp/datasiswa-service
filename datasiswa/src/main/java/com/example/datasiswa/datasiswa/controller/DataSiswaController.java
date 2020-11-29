@@ -41,5 +41,12 @@ public class DataSiswaController {
 	public Map<String, Object> showDataSiswa(){
 		return dataSiswaService.showAll();
 	}
+	
+	@PostMapping("/filterDataSiswa")
+	@ResponseBody
+	public Map<String, Object> filterDataSiswa(@RequestParam(name = "nis") String nis){
+		Map<String, Object> map = dataSiswaService.filterSiswa(nis);
+		return map;
+	}
 
 }
