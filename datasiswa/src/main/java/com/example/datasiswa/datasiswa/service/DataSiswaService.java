@@ -65,10 +65,15 @@ public class DataSiswaService {
 	public Map<String, Object> filterSiswa(String nis){
 		DataSiswaEntity data = dataSiswaRepository.filter(nis);
 		Map<String, Object> map = new HashMap<>();
-		map.put("statusCode", 200);
-		map.put("message", "success");
-		map.put("data", data);
 		
+		if(data == null) {
+			map.put("statusCode", 404);
+			map.put("message", "data is not found");
+		}else {
+			map.put("statusCode", 200);
+			map.put("message", "success");
+			map.put("data", data);
+		}
 		return map;
 	}
 }
