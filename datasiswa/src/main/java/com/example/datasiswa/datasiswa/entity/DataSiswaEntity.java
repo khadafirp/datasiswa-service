@@ -37,6 +37,12 @@ public class DataSiswaEntity {
 	@Column(name = "nohp")
 	private String nohp;
 
+	@Column(name = "nilai")
+	private String nilai;
+	
+	@Column(name = "status_nilai")
+	private String statusNilai;
+
 	public int getId() {
 		return id;
 	}
@@ -99,6 +105,22 @@ public class DataSiswaEntity {
 
 	public void setNohp(String nohp) {
 		this.nohp = nohp;
+	}
+	
+	public String getNilai() {
+		return nilai;
+	}
+
+	public void setNilai(String nilai) {
+		this.nilai = nilai;
+	}
+
+	public String getStatusNilai() {
+		return statusNilai;
+	}
+
+	public void setStatusNilai(String statusNilai) {
+		this.statusNilai = statusNilai;
 	}
 
 }

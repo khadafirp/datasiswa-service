@@ -29,9 +29,16 @@ public class DataSiswaController {
 	
 	@PostMapping("/addSiswa")
 	@ResponseBody
-	public Map<String, Object> tambahSiswa(@RequestBody DataSiswaEntity dataSiswaEntity){
+	public Map<String, Object> tambahSiswa(@RequestParam(name = "nama_siswa") String namaSiswa, 
+			@RequestParam(name = "nis") String nis, 
+			@RequestParam(name = "kelas") String kelas, 
+			@RequestParam(name = "nama_sekolah") String namaSekolah, 
+			@RequestParam(name = "ttl") String ttl, 
+			@RequestParam(name = "email") String email, 
+			@RequestParam(name = "noHp") String noHp, 
+			@RequestParam(name = "nilai") String nilai){
 		
-		Map<String, Object> data = dataSiswaService.addSiswa(dataSiswaEntity);
+		Map<String, Object> data = dataSiswaService.addSiswa(namaSiswa, nis, kelas, namaSekolah, ttl, email, noHp, nilai);
 		
 		return data;
 	}

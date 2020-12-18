@@ -22,7 +22,7 @@ public class DataSiswaService {
 	private DataSiswaRepository dataSiswaRepository;
 	
 	@Transactional
-	public Map<String, Object> addSiswa(DataSiswaEntity dataSiswaEntity){
+	public Map<String, Object> addSiswa(String namaSiswa, String nis, String kelas, String namaSekolah, String ttl, String email, String noHp, String nilai){
 		DataSiswaEntity addData = new DataSiswaEntity();
 //		addData.setNamaSiswa("Juned Junaidi");
 //		addData.setNis("20189100919");
@@ -32,13 +32,35 @@ public class DataSiswaService {
 //		addData.setEmail("juned@gmail.com");
 //		addData.setNohp("081212121212");
 		
-		addData.setNama_siswa(dataSiswaEntity.getNama_siswa());
-		addData.setNis(dataSiswaEntity.getNis());
-		addData.setKelas(dataSiswaEntity.getKelas());
-		addData.setNama_sekolah(dataSiswaEntity.getNama_sekolah());
-		addData.setTtl(dataSiswaEntity.getTtl());
-		addData.setEmail(dataSiswaEntity.getEmail());
-		addData.setNohp(dataSiswaEntity.getNohp());
+//		addData.setNama_siswa(dataSiswaEntity.getNama_siswa());
+//		addData.setNis(dataSiswaEntity.getNis());
+//		addData.setKelas(dataSiswaEntity.getKelas());
+//		addData.setNama_sekolah(dataSiswaEntity.getNama_sekolah());
+//		addData.setTtl(dataSiswaEntity.getTtl());
+//		addData.setEmail(dataSiswaEntity.getEmail());
+//		addData.setNohp(dataSiswaEntity.getNohp());
+//		addData.setNilai(dataSiswaEntity.getNilai());
+//		addData.setStatusNilai(dataSiswaEntity.getStatusNilai());
+		
+		
+		//metode fuzzy 
+		
+				addData.setNama_siswa(namaSiswa);
+				addData.setNis(nis);
+				addData.setKelas(kelas);
+				addData.setNama_sekolah(namaSekolah);
+				addData.setTtl(ttl);
+				addData.setEmail(email);
+				addData.setNohp(noHp);
+				addData.setNilai(nilai);
+				
+		if(Integer.parseInt(nilai) > 90) {
+			addData.setStatusNilai("Sangat Bagus");
+		}else if(Integer.parseInt(nilai) < 90) {
+			addData.setStatusNilai("Bagus");
+		}else if(Integer.parseInt(nilai) < 75) {
+			addData.setStatusNilai("Kurang");
+		}
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("statusCode", 200);
